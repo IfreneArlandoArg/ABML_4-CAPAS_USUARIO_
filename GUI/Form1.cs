@@ -62,6 +62,9 @@ namespace GUI
                 if (txtApellido.Text == string.Empty)
                     throw new Exception("Formato Apellido Incorrecto...");
 
+                if(!bLLUsuario.FormatoDNICorrecto(txtDNI.Text))
+                    throw new Exception("Formato DNI Incorrecto...\nTiene qué ser de 8 numeros.\nEjemplo:34123789.");
+
                 
                 Usuario temp = new Usuario(bLLUsuario.GetID(), txtNombre.Text, txtApellido.Text, tempDNI);
 

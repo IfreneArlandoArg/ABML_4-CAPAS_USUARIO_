@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BE;
 using DAL;
@@ -56,6 +57,13 @@ namespace BLL
 
 
             return ID;
+        }
+
+        public bool FormatoDNICorrecto(string pDNI)
+        {
+            Regex DNIRegex = new Regex(@"^[0-9]{8}$");
+
+            return DNIRegex.IsMatch(pDNI);
         }
     }
 }
